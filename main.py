@@ -29,11 +29,14 @@ class SprayBottle:
 
             if self._current_volume_in_milliliters < 0:
                 self._current_volume_in_milliliters = 0
+                print("not enough to spray")
                 return False # invalid state
 
+            print ("Enough to spray")
             return True # everything ok
 
-        return False # invalid amount
+        print("cant spray negative")
+        quit( ) # invalid amount
 
 
 
@@ -50,9 +53,9 @@ if __name__ == '__main__':
         print("it didn't work")
 
 
-    result = bleach.spray()
+    result = bleach.spray(30)
 
     while result:
         print('you sprayed some bleach')
-        result = bleach.spray()
+        result = bleach.spray(-30)
     print("the bottle is empty")
